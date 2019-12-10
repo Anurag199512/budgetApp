@@ -9,7 +9,7 @@ export function defal(){
 
 
 export function addexpense({description=" ",cost=" ",createddate=" "}={}){
-    console.log('B',description,cost,createddate)
+    //console.log('B',description,cost,createddate)
     return ({
         type:"addexp",
         ob:{
@@ -76,14 +76,16 @@ export function displayitems(cur_state){
         }
     }
     if(cur_state.filter.sortby=='date'){
-        if(cur_state.filter.order=='asc'){
-            //console.log('as00')c
+
+
+        if(cur_state.filter.order==='asc'){
+            console.log('as00')
             news.sort(function (a,b){
                 return a.createddate<b.createddate?-1 :1
             })
         }
         else{
-           // console.log('as001')
+            console.log('as001')
             news.sort(function (a,b){
                 return a.createddate>b.createddate?1 :-1
             
@@ -91,7 +93,7 @@ export function displayitems(cur_state){
     }
 }
 
-    //console.log('A',news)
+console.log('A',news)
    return news
 }
 

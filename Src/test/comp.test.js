@@ -21,5 +21,5 @@ test('addd 2 no',()=>{
     //     {throw new Error('Tc failed...')}
 
     //2 way
-    expect(result).toBe(13)
+    expect(result).toBe(12)
 })

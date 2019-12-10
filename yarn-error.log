@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Anurag\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add jest@20.0.4
+  C:\Program Files\nodejs\node.exe C:\Users\Anurag\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add react-dates@12.7.0
 
 PATH: 
   C:\app\Anurag\product\12.2.0\dbhome_1\bin;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\Skype\Phone\;C:\WINDOWS\system32\config\systemprofile\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 & MySQL Utilities 1.5\;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 & MySQL Utilities 1.5\Doctrine extensions for PHP\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\MATLAB\R2017a\bin;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\;C:\Program Files\Microsoft SQL Server\140\Tools\Binn\;C:\Program Files\Microsoft SQL Server\140\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Users\Anurag\Anaconda2;C:\Users\Anurag\Anaconda2\Scripts;C:\Users\Anurag\Anaconda2\Library\bin;C:\Program Files\Java\jdk1.7.0_79\bin;C:\Users\Anurag\AppData\Local\Android\sdk;C:\Users\Anurag\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\Anurag\AppData\Roaming\npm;C:\Program Files\heroku\bin;
@@ -14,7 +14,8 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: EPERM: operation not permitted, scandir 'A:\REACT.JS\self made\budget app\node_modules\@types'
+  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com registry.yarnpkg.com:443
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:57:26)
 
 npm manifest: 
   {
@@ -30,10 +31,10 @@ npm manifest:
       "babel-plugin-transform-object-rest-spread": "^6.26.0",
       "babel-preset-env": "^1.7.0",
       "babel-preset-react": "^6.24.1",
+      "jest": "^20.0.4",
       "moment": "^2.24.0",
       "react": "^16.12.0",
       "react-addons-shallow-compare": "15.6.0",
-      "react-dates": "12.3.0",
       "react-dom": "^16.12.0",
       "react-redux": "^7.1.3",
       "react-router-dom": "4.2.2",

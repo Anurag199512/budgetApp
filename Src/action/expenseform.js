@@ -3,13 +3,13 @@ import {connect} from 'react-redux'
 import {addexpense} from './deault'
 import {SingleDatePicker} from 'react-dates'
 import moment from 'moment'
-//import 'react-dates/lib/css/_datepicker.css'
+import 'react-dates/lib/css/_datepicker.css'
 
 const now=moment()
 console.log(now)
  class Expenseform extends React.Component{  
      state = {
-            desp:'as',
+            desp:'',
             cost:'',
             date:moment(),
             error:undefined,
@@ -62,7 +62,7 @@ console.log(now)
                 })) 
         }
         else{
-            console.log('Aa')
+            //console.log('Aa')
             this.setState(()=>({
                 error:undefined
                })) 
