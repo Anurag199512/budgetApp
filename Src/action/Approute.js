@@ -17,9 +17,9 @@ store.subscribe(()=>{
 
 })
 
-const one=store.dispatch(addexpense({description:"For Rent",cost:5000}))
-const two=store.dispatch(addexpense({description:"For Food",cost:250,createddate:"today"}))
-store.dispatch(editexpense(two.ob.id,{cost:2500,createddate:"yesterday"}))
+// const one=store.dispatch(addexpense({description:"For Rent",cost:5000}))
+// const two=store.dispatch(addexpense({description:"For Food",cost:250,createddate:"today"}))
+// store.dispatch(editexpense(two.ob.id,{cost:2500,createddate:"yesterday"}))
 
 
 //console.log(one)
