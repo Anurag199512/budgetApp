@@ -2,7 +2,7 @@ import React from 'react'
 const uuidv1 = require('uuid/v1');
 
 export function defal(){
-    return (<div style={{color:"red"}}>URL od not exist.Go to proper URL
+    return (<div style={{color:"red"}}>URL do not exist.Go to proper URL
         </div>)
 }
 

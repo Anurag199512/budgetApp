@@ -5,7 +5,7 @@ export default  function addexp(props){
  
     return (<div>
             Add Expense from class component
-            <Expenseform   />
+            <Expenseform/>
         </div>)
     }
 

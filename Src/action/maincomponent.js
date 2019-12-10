@@ -16,7 +16,7 @@ export class Maincomponent extends React.Component{
         <div style={{background:"rgb(10,40,10,.3)",marginBottom:"10px"}}> 
         <Link to ="/">Dashboard</Link>
         <Link to ="/add">Add Expense</Link>
-        <Link to ="/edit/:id">Edit expense</Link>
+         
         <Link to ="/help">Help</Link>
         </div>
         <Switch>
