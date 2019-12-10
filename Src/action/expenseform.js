@@ -6,7 +6,7 @@ import moment from 'moment'
 import 'react-dates/lib/css/_datepicker.css'
 
 const now=moment()
-console.log(now)
+//console.log(now)
  class Expenseform extends React.Component{  
      state = {
             desp:'',
@@ -55,7 +55,7 @@ console.log(now)
         
         //console.log(props)
         if(!this.state.desp || !this.state.cost || !this.state.date){
-            console.log(this.state.desp,this.state.cost,this.state.date)
+            //console.log(this.state.desp,this.state.cost,this.state.date)
             //console.log('A')
             this.setState(()=>({
                  error:"enter all the values or > 0"
@@ -74,6 +74,7 @@ console.log(now)
     //             console.log(prevstate)
     //             console.log(this.props)
     //     }) 
+        
      }
     render(){
         return (<div>
@@ -97,7 +98,7 @@ console.log(now)
                 onFocusChange={this.setfocus}
                 >
                 
-                </SingleDatePicker>
+                </SingleDatePicker><br/>
                 <button>Submit</button>
             </form>
         </div>)

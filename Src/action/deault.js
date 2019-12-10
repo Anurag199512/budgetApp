@@ -76,18 +76,23 @@ export function displayitems(cur_state){
         }
     }
     if(cur_state.filter.sortby=='date'){
-
-
         if(cur_state.filter.order==='asc'){
-            console.log('as00')
+            //console.log('as00')
             news.sort(function (a,b){
-                return a.createddate<b.createddate?-1 :1
+                // if(a.createddate>b.createddate)
+                //     console.log('a>b')
+                // else 
+                //     console.log('b>a')
+                
+               // console.log(a.createddate,a.createddate+5)
+
+                return a.createddate>b.createddate?1 :-1
             })
         }
         else{
-            console.log('as001')
+            //console.log('as001')
             news.sort(function (a,b){
-                return a.createddate>b.createddate?1 :-1
+                return a.createddate>b.createddate?-1 :1
             
         })
     }

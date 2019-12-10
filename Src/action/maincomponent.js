@@ -7,7 +7,7 @@ import {help} from './help'
 import {defal} from './deault'
 import {dashboard} from './dashboard'
 
-console.log('budget app')
+//console.log('budget app')
 
 export class Maincomponent extends React.Component{
     render(){
