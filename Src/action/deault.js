@@ -1,5 +1,6 @@
 import React from 'react'
 const uuidv1 = require('uuid/v1');
+import {database,firebase} from '../../firebase/firebase'
 
 export function defal(){
     return (<div style={{color:"red"}}>URL do not exist.Go to proper URL
@@ -8,17 +9,28 @@ export function defal(){
 
 
 
-export function addexpense({description=" ",cost=" ",createddate=" "}={}){
+function addexpense(ob){
     //console.log('B',description,cost,createddate)
     return ({
         type:"addexp",
-        ob:{
-            id:uuidv1(),
-            description,
-            cost,
-            createddate
-        }
+        ob 
     })
+}
+
+
+export function startaddexpense({description="",cost=0,createddate=0,note=''}={}){
+    return (dispatch)=>{
+        const newob={
+        description,cost,createddate,note
+     }
+        database.ref('expense').push(newob).then((ref)=>{
+                dispatch(addexpense({
+                    id:ref.key,
+                    ...newob
+                }))
+        })
+    }
+
 }
 
 export function removeexpense(id){
@@ -29,7 +41,7 @@ export function removeexpense(id){
     })
 }
 
-export function editexpense(id,update={}){
+function editexpense(id,update={}){
     //console.log(id,'B')
     return({
         type:"editexpense",
@@ -37,6 +49,25 @@ export function editexpense(id,update={}){
         update
     })
 }
+
+export function starteditexpense(id,update={}){
+
+    database.ref().once('value').then((ss)=>{
+        console.log(ss.val())
+    })
+    return (dispatch)=>{
+   //     const o='expense/${id}' +id
+        database.ref(o).update({
+            note:update.note,
+            description:update.desp,
+            cost:update.cost,
+            created:update.created
+        }).then(()=>{
+            dispatch(editexpense(id,update))
+        })
+    }    
+}
+
 
 export function setfiltertext(text){
     //console.log(text)

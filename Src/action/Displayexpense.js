@@ -26,8 +26,7 @@ function Showexp(props){
            {
                props.expense.map((item)=>{
                    var show=(<div>
-                     <br/>{item.id}<br/> 
-                     <Link to ={`/edit/${item.id}`}>{item.description}</Link>---{item.cost}<br/>
+                     <br/>                     <Link to ={`/edit/${item.id}`}>{item.description}</Link>---{item.cost}<br/>
                      {item.createddate}<br/>   
                     </div>)
                              return (<div key ={item.id}>{show}</div>)

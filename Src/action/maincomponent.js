@@ -6,7 +6,8 @@ import {editexp} from './editexpense'
 import {help} from './help'
 import {defal} from './deault'
 import {dashboard} from './dashboard'
-
+import '../../firebase/firebase'
+import '../../firebase/prommise'
 //console.log('budget app')
 
 export class Maincomponent extends React.Component{
@@ -15,7 +16,7 @@ export class Maincomponent extends React.Component{
     <div>
         <div style={{background:"rgb(10,40,10,.3)",marginBottom:"10px"}}> 
         <Link to ="/">Dashboard</Link>
-        <Link to ="/add">Add Expense</Link>
+        <Link to ="/add">Add Expense </Link>
          
         <Link to ="/help">Help</Link>
         </div>

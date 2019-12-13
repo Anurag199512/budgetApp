@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {addexpense,editexpense} from './deault'
+import {startaddexpense,starteditexpense} from './deault'
 import {SingleDatePicker} from 'react-dates'
 import moment from 'moment'
 import 'react-dates/lib/css/_datepicker.css'
@@ -15,14 +15,16 @@ class Expenseform extends React.Component{
         this.found=0
         this.props.expense.map((item)=>{
                 if(item.id===this.props.val){
+                    //console.log('matched')
                     this.data=item
                     this.found=1
                 }
         })
-       // console.log("D",this.data)
+        //console.log("D",this.data,this.found)
         this.state = {
             desp:''||this.data.description,
-            cost:0||this.data.cost,
+            note:''||this.data.note,
+            cost:0 ||this.data.cost,
             date:moment() ||this.data.date,
             error:undefined,
             cal_focus:false
@@ -38,6 +40,12 @@ class Expenseform extends React.Component{
         }))
     }
 
+    setnote=(e)=>{
+        e.persist()
+        this.setState(()=>({
+            note:e.target.value
+        }))
+    }
 
     setfocus=({focused})=>{
         //e.persist()
@@ -83,13 +91,15 @@ class Expenseform extends React.Component{
         else {
             this.setState(()=>( {error:' ' }))
             if (this.found==0)
-                this.props.dispatch(addexpense({description:this.state.desp ,cost:this.state.cost ,createddate:this.state.date.valueOf() }))
+                this.props.dispatch(startaddexpense({description:this.state.desp ,cost:this.state.cost ,note:this.state.note,createddate:this.state.date.valueOf() }))
             else
-                this.props.dispatch(editexpense(this.props.val,{description:this.state.desp ,cost:this.state.cost ,createddate:this.state.date.valueOf() }))
+                this.props.dispatch(starteditexpense(this.props.val,{description:this.state.desp ,cost:this.state.cost ,note:this.state.note,createddate:this.state.date.valueOf() }))
             
         }
 
-        // //console.log(props)
+
+        //console.log('P',this.props)
+        this.props.history.push('/')
         // if(!this.state.desp || !this.state.cost || !this.state.date){
         //     //console.log(this.state.desp,this.state.cost,this.state.date)
         //     //console.log('A')
@@ -119,9 +129,11 @@ class Expenseform extends React.Component{
                         {this.state.error && this.state.error}
             </b>
            <form onSubmit={this.submitform}>
-          
                 Description  <input type="text" id="desp" value={this.state.desp} onChange={this.setdesp}
-                    placeholder="description of the xpense"/><br/>
+                placeholder="description of the xpense"/><br/>
+
+                Additional Detail  <input type="textarea" width="20" height="20" id="note" value={this.state.note} onChange={this.setnote}
+                    placeholder="Side note on the expense(Optional)"/><br/>
                 Cost  <input type="number" id="cost" value={this.state.cost} onChange={this.setcost}
                     placeholder="cost of the xpense"/><br/>
 

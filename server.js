@@ -9,7 +9,7 @@ console.log(pubpath)
 console.log(path.join(pubpath,'index.html'))
 
 app.get('*',(req,res)=>{
-    res.sendFile(path.join(pubpath,'index'))
+    res.sendFile(path.join(pubpath,'index.html'))
 })
 
 app.listen(port,()=>{

@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {BrowserRouter,Route,Switch,Link} from 'react-router-dom'
 
+
 console.log('budget app')
 const rout=(
     <BrowserRouter>
