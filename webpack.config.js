@@ -23,7 +23,7 @@ module.exports={
             use:['style-loader','css-loader','sass-loader']
         }]
     },
-    plugin:[
+    plugins:[
         new webpack.DefinePlugin({
             'process.env.FIREBASE_API_KEY':JSON.stringify(process.env.FIREBASE_API_KEY),
             'process.env.FIREBASE_AUTH':JSON.stringify(process.env.FIREBASE_AUTH),
