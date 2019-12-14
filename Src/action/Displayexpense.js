@@ -1,11 +1,11 @@
 import React from'react'
 import {connect} from 'react-redux'
-import {displayitems,setfiltertext,setsort} from './deault'
+import {displayitems,setfiltertext,setsort,firebaseremove} from './deault'
 import moment from 'moment'
-import {BrowserRouter,Route,Switch,Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 function Showexp(props){
-    console.log(props)
+    //console.log(props)
     //console.log(document.getElementById("changetext").value)
     return (
         <div>
@@ -27,7 +27,10 @@ function Showexp(props){
                props.expense.map((item)=>{
                    var show=(<div>
                      <br/>                     <Link to ={`/edit/${item.id}`}>{item.description}</Link>---{item.cost}<br/>
-                     {item.createddate}<br/>   
+                     {moment(item.createddate).format('ll')}<br/>   
+                     <button onClick={()=>
+                        {props.dispatch(firebaseremove(item.id))}}
+                    >Remove this</button> 
                     </div>)
                              return (<div key ={item.id}>{show}</div>)
            })}

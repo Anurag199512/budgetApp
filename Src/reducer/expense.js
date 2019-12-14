@@ -39,6 +39,9 @@ export function expensereducer(state=defaultstate.expense,action){
                 }
                 else return ob1
             })
+
+            case 'Setexpense':  
+                return action.exp
         default:return state
     }
 }

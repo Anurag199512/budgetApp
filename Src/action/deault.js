@@ -1,6 +1,6 @@
 import React from 'react'
-const uuidv1 = require('uuid/v1');
-import {database,firebase} from '../../firebase/firebase'
+//const uuidv1 = require('uuid/v1');
+import {database} from '../../firebase/firebase'
 
 export function defal(){
     return (<div style={{color:"red"}}>URL do not exist.Go to proper URL
@@ -33,12 +33,19 @@ export function startaddexpense({description="",cost=0,createddate=0,note=''}={}
 
 }
 
-export function removeexpense(id){
+function removeexpense(id){
     //console.log(id)
     return ({
         type:"removeexp",
         id
     })
+}
+
+export function firebaseremove(id){
+    return (dispatch)=>{
+        database.ref(`expense/${id}`).remove()
+        dispatch(removeexpense(id))
+    }
 }
 
 function editexpense(id,update={}){
@@ -52,17 +59,13 @@ function editexpense(id,update={}){
 
 export function starteditexpense(id,update={}){
 
-    database.ref().once('value').then((ss)=>{
-        console.log(ss.val())
-    })
+//     database.ref().once('value').then((ss)=>{
+//         //console.log(ss.val())
+//     })
+
     return (dispatch)=>{
-   //     const o='expense/${id}' +id
-        database.ref(o).update({
-            note:update.note,
-            description:update.desp,
-            cost:update.cost,
-            created:update.created
-        }).then(()=>{
+         
+        database.ref(`expense/${id}`).update(update).then(()=>{
             dispatch(editexpense(id,update))
         })
     }    
@@ -129,8 +132,33 @@ export function displayitems(cur_state){
     }
 }
 
-console.log('A',news)
+//console.log('A',news)
    return news
 }
 
  
+function setexpense(exp){
+    //console.log('B',description,cost,createddate)
+    return ({
+        type:"Setexpense",
+        exp
+    })
+}
+ export function firebasedisplayexp(){
+    return (dispatch)=>{
+        return database.ref('expense').once('value')
+        .then((ss)=>{
+            const expense=[]
+            //const data=ss.val()
+            ss.forEach((exp)=>{
+                expense.push({
+                       id:exp.key,
+                    ...exp.val()
+                })
+            })
+      
+         dispatch(setexpense(expense))    
+        })
+        .catch((e)=>{console.log('error"',e)})
+            }
+ }

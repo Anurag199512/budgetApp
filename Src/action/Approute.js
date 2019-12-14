@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {Provider} from 'react-redux'
-import {addexpense,editexpense,removeexpense,displayitems,setfiltertext} from './deault'
+import {firebasedisplayexp} from './deault'
 import store from '../store/createstore'
 //import {Provider, connect} from 'react-redux'
 import {Maincomponent} from './maincomponent'
@@ -11,11 +11,11 @@ import {Maincomponent} from './maincomponent'
 //store.dispatch(addexpense({description:"For Rent",cost:5000}))
 //console.log(store.getState())
 
-store.subscribe(()=>{
-    //console.log(store.getState())
-    displayitems(store.getState())
+// store.subscribe(()=>{
+//     //console.log(store.getState())
+//     displayitems(store.getState())
 
-})
+// })
 
 // const one=store.dispatch(addexpense({description:"For Rent",cost:5000}))
 // const two=store.dispatch(addexpense({description:"For Food",cost:250,createddate:"today"}))
@@ -30,10 +30,22 @@ store.subscribe(()=>{
 //     store.dispatch(setfiltertext('for'))
 // }, 3000)
 
+
+
 const jsx=(
     <Provider store={store}>
         <Maincomponent/>
     </Provider>
 )
 
-ReactDOM.render(jsx,document.getElementById("app"))
+//ReactDOM.render(jsx,document.getElementById("app"))
+
+
+ReactDOM.render(<p>Loading expenses...</p>,document.getElementById("app"))
+
+////load state from firebase before redering
+store.dispatch(firebasedisplayexp()).then(()=>{
+    ReactDOM.render(jsx,document.getElementById("app"))
+
+})
+

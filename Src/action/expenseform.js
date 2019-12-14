@@ -1,10 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {startaddexpense,starteditexpense} from './deault'
+import {startaddexpense,starteditexpense,removeexpense} from './deault'
 import {SingleDatePicker} from 'react-dates'
 import moment from 'moment'
 import 'react-dates/lib/css/_datepicker.css'
-import { editexp } from './editexpense';
+//import { editexp } from './editexpense';
 
 const now=moment()
 //console.log(now)
@@ -12,15 +12,17 @@ class Expenseform extends React.Component{
     constructor(props){ 
         super(props)
         this.data={}
-        this.found=0
+        
         this.props.expense.map((item)=>{
                 if(item.id===this.props.val){
                     //console.log('matched')
                     this.data=item
-                    this.found=1
+                    this.found=true
                 }
         })
-        //console.log("D",this.data,this.found)
+
+        //this.found=this.data.description.length>0?true:undefined
+ 
         this.state = {
             desp:''||this.data.description,
             note:''||this.data.note,
@@ -90,7 +92,7 @@ class Expenseform extends React.Component{
         }
         else {
             this.setState(()=>( {error:' ' }))
-            if (this.found==0)
+            if (!this.found)
                 this.props.dispatch(startaddexpense({description:this.state.desp ,cost:this.state.cost ,note:this.state.note,createddate:this.state.date.valueOf() }))
             else
                 this.props.dispatch(starteditexpense(this.props.val,{description:this.state.desp ,cost:this.state.cost ,note:this.state.note,createddate:this.state.date.valueOf() }))
@@ -123,6 +125,7 @@ class Expenseform extends React.Component{
         
      }
     render(){
+        
         return (<div>
              Expense from  <br/><br/>
             <b> 
@@ -147,6 +150,7 @@ class Expenseform extends React.Component{
                 >
                 
                 </SingleDatePicker><br/>
+                
                 <button>Submit</button>
             </form>
         </div>)
