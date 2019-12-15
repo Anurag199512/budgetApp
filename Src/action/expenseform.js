@@ -93,15 +93,20 @@ class Expenseform extends React.Component{
         else {
             this.setState(()=>( {error:' ' }))
             if (!this.found)
-                this.props.dispatch(startaddexpense({description:this.state.desp ,cost:this.state.cost ,note:this.state.note,createddate:this.state.date.valueOf() }))
+            {  
+                  this.props.dispatch(startaddexpense({description:this.state.desp ,cost:this.state.cost ,note:this.state.note,createddate:this.state.date.valueOf() }))
+                  this.props.history.push('/Dashboard')  
+                }
             else
-                this.props.dispatch(starteditexpense(this.props.val,{description:this.state.desp ,cost:this.state.cost ,note:this.state.note,createddate:this.state.date.valueOf() }))
-            
+                {
+                    this.props.dispatch(starteditexpense(this.props.val,{description:this.state.desp ,cost:this.state.cost ,note:this.state.note,createddate:this.state.date.valueOf() }))
+                    this.props.history.push('/Dashboard')  
+                }
         }
 
 
         //console.log('P',this.props)
-        this.props.history.push('/')
+        
         // if(!this.state.desp || !this.state.cost || !this.state.date){
         //     //console.log(this.state.desp,this.state.cost,this.state.date)
         //     //console.log('A')

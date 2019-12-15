@@ -3,9 +3,11 @@ const webpack=require('webpack')
 
 process.env.NODE_ENV= process.env.NODE_ENV ||'development'
 
-if(process.env.NODE_ENV==='development'){
+if(process.env.NODE_ENV=='development'){
     require('dotenv').config({path:'.env.development'})
 }
+//console.log(process.env.NODE_ENV,'q')
+
 module.exports={
    // entry:'./src/app1.js',
      entry:'./Src/action/Approute.js',

@@ -19,11 +19,13 @@ function addexpense(ob){
 
 
 export function startaddexpense({description="",cost=0,createddate=0,note=''}={}){
-    return (dispatch)=>{
+    return (dispatch,getState)=>{
         const newob={
         description,cost,createddate,note
      }
-        database.ref('expense').push(newob).then((ref)=>{
+     const s=getState()
+     const uid=s.auth.uid
+        database.ref(`users/${uid}/expense`).push(newob).then((ref)=>{
                 dispatch(addexpense({
                     id:ref.key,
                     ...newob
@@ -42,8 +44,10 @@ function removeexpense(id){
 }
 
 export function firebaseremove(id){
-    return (dispatch)=>{
-        database.ref(`expense/${id}`).remove()
+    return (dispatch,getState)=>{
+        const s=getState()
+        const uid=s.auth.uid
+        database.ref(`users/${uid}/expense/${id}`).remove()
         dispatch(removeexpense(id))
     }
 }
@@ -63,9 +67,10 @@ export function starteditexpense(id,update={}){
 //         //console.log(ss.val())
 //     })
 
-    return (dispatch)=>{
-         
-        database.ref(`expense/${id}`).update(update).then(()=>{
+    return (dispatch,getState)=>{
+        const s=getState()
+        const uid=s.auth.uid
+        database.ref(`users/${uid}/expense/${id}`).update(update).then(()=>{
             dispatch(editexpense(id,update))
         })
     }    
@@ -145,8 +150,9 @@ function setexpense(exp){
     })
 }
  export function firebasedisplayexp(){
-    return (dispatch)=>{
-        return database.ref('expense').once('value')
+    return (dispatch,getState)=>{
+        const uid=getState().auth.uid
+        return database.ref(`users/${uid}/expense`).once('value')
         .then((ss)=>{
             const expense=[]
             //const data=ss.val()

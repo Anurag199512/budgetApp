@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom'
 import {Provider} from 'react-redux'
 import {firebasedisplayexp} from './deault'
 import store from '../store/createstore'
-//import {Provider, connect} from 'react-redux'
-import {Maincomponent} from './maincomponent'
+import {login, logout} from './authentication'
+import {Maincomponent,history} from './maincomponent'
+import {firebase} from  '../../firebase/firebase' 
 
 
 //const s =store()
@@ -44,8 +45,29 @@ const jsx=(
 ReactDOM.render(<p>Loading expenses...</p>,document.getElementById("app"))
 
 ////load state from firebase before redering
-store.dispatch(firebasedisplayexp()).then(()=>{
-    ReactDOM.render(jsx,document.getElementById("app"))
 
+let render=false
+function renderApp(){
+    if(!render){
+        ReactDOM.render(jsx,document.getElementById("app"))
+        render=true
+    }
+}
+
+firebase.auth().onAuthStateChanged((user)=>{
+    if(user){
+        console.log('Logged in....',user.uid)
+        store.dispatch(login(user.uid))
+        store.dispatch(firebasedisplayexp()).then(()=>{
+            renderApp()
+            if(history.location.pathname==='/')
+                history.push('/Dashboard')
+        })
+    }
+    else
+      {  console.log('Logged out....')
+        store.dispatch(logout())
+        renderApp()
+        history.push('/')}
 })
 
