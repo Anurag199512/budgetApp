@@ -1,8 +1,3 @@
-node_modules/
-Src/redux1.js
-Src/redux1.js
-Src/webp.js
-firebase/
-/old.txt
-/tc.tt
+node_modules
 .env.development
+firebase
