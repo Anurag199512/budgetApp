@@ -26,8 +26,13 @@
 
 
 .listitem_btn{
-    align-content: right;
-    
+    align-items: right;
+    background: rgba(204, 136, 10, 0.76);
+    margin-top:auto;
+    margin-bottom:auto;
+    padding:5px 10px 5px 10px ;
+    line-height: 2rem;
+    border:0px;
 }
 
 .list_header{

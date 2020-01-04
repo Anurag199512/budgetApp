@@ -4,7 +4,7 @@ import {Router,Route,Switch} from 'react-router-dom'
 import addexp1 from './addexpense'
 import {editexp} from './editexpense'
 import {help} from './help'
-import Header from './header'
+
 import {defal} from './deault'
 import {dashboard} from './dashboard'
 //import '../../firebase/firebase'
@@ -23,10 +23,12 @@ export const history=createhistory()
     
     return (<Router history={history}>
     <div>
-           <Header/>
-               
+        
+     
+
         <Switch>
                 <Route path="/" component={Loginpage}  exact={true}/>
+                 
                 <Privateroute path="/Dashboard" component={dashboard}  exact={true}/>
                 <Privateroute path="/add" component={addexp1} exact={true}/>
                 <Privateroute path="/edit/:id" component={editexp}  />

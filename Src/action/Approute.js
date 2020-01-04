@@ -57,7 +57,8 @@ function renderApp(){
 
 firebase.auth().onAuthStateChanged((user)=>{
     if(user){
-        console.log('Logged in....',user.uid)
+        //console.log('Logged in....',user.uid)
+        
         store.dispatch(login(user.uid))
         store.dispatch(firebasedisplayexp()).then(()=>{
             renderApp()
@@ -66,7 +67,8 @@ firebase.auth().onAuthStateChanged((user)=>{
         })
     }
     else
-      {  console.log('Logged out....')
+      { 
+        //console.log('Logged out....')
         store.dispatch(logout())
         renderApp()
         history.push('/')}

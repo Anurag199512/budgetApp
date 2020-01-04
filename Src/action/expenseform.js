@@ -131,34 +131,40 @@ class Expenseform extends React.Component{
      }
     render(){
         
-        return (<div>
-             Expense from  <br/><br/>
+        return (<div className="container_header">
+        <br/><br/><br/><br/>
+        <div className="list_header">
+             Expense from  
+             </div>
+             <br/><br/>
             <b> 
                         {this.state.error && this.state.error}
             </b>
            <form onSubmit={this.submitform}>
-                Description  <input type="text" id="desp" value={this.state.desp} onChange={this.setdesp}
-                placeholder="description of the xpense"/><br/>
+                <span>Description</span> <br/>  <input className="itemaddpage" type="text"   id="desp" value={this.state.desp} onChange={this.setdesp}
+                placeholder="description of the expense"/><br/><br/>
 
-                Additional Detail  <input type="textarea" width="20" height="20" id="note" value={this.state.note} onChange={this.setnote}
-                    placeholder="Side note on the expense(Optional)"/><br/>
-                Cost  <input type="number" id="cost" value={this.state.cost} onChange={this.setcost}
-                    placeholder="cost of the xpense"/><br/>
+                <span>Additional Detail </span><br/> <textarea className="itemaddpage" type="textarea"  rows="4" cols="80" id="note" value={this.state.note} onChange={this.setnote}
+                    placeholder="Side note on the expense(Optional)"/><br/><br/>
+                    <span>Cost  </span><br/><input className="itemaddpage" type="number" id="cost" value={this.state.cost} onChange={this.setcost}
+                    placeholder="cost of the expense"/><br/><br/>
 
-                Created Date  
+                    <span>Created Date  </span><br/>
                   
                 <SingleDatePicker
-                date={this.state.date}//date is momenyt object
+                date={this.state.date}//date is moment object
                 onDateChange={this.setdate}
                 focused={this.state.cal_focus}
                 onFocusChange={this.setfocus}
+                 
                 >
                 
-                </SingleDatePicker><br/>
+                </SingleDatePicker><br/><br/>
                 
-                <button>Submit</button>
+                <button className="listitem_btn">Submit</button>
             </form>
-        </div>)
+        </div>
+        )
     }
 } 
 

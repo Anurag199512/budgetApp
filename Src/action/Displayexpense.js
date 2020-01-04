@@ -58,9 +58,13 @@ function Showexp(props){
         </div>
             <br/><br/>    
             <div className="container_header">
-            <div className="list_header">
-                <div className="showmobile">Expenses</div>
-            </div></div>            
+                
+            {  
+                props.expense.length>0?<div className="list_header">
+                    <div className="showmobile">Expenses</div> </div>:<div></div>
+            }
+                
+            </div>            
            {
                props.expense.map((item)=>{
                    var show=(<div className="container_header">
@@ -70,7 +74,7 @@ function Showexp(props){
                        <div className="items">
                        <Link className="listitem_link" to ={`/edit/${item.id}`}>
                             <div>
-                                {item.description}---{item.note}
+                                {item.description} {item.note}
                             </div>
                             <div>
                                 {item.cost}
@@ -81,7 +85,7 @@ function Showexp(props){
                           
                         <button className="listitem_btn" onClick={()=>
                             {props.dispatch(firebaseremove(item.id))}}
-                        >Remove this</button> 
+                        >Remove</button> 
                         </div>: <div className="items"> No Expense present to show. </div>
                     }           
                     

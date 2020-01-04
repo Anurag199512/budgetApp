@@ -23,7 +23,7 @@ function Header(props){
             <h1 style={{margin:"0px"}}>    
                 <Link className="header_link" to ="/Dashboard">BudgetApp</Link>
             </h1>
-            <a className="header_a" style={{color:"white"}} onClick={props.startlogout}>Log out</a>
+            <Link className="header_a" style={{color:"white"}} to ="/"onClick={props.startlogout}>Log out</Link>
         </div>
     </div>
 </div>)

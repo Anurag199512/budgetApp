@@ -1,6 +1,9 @@
 
 import React from 'react'
+import Header from './header'
+
 export function help(){
-    return (<div>  Help page here
+    return (<div>
+        <Header/>  Help page here
         </div>)
 }
