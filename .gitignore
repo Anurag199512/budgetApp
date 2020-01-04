@@ -9,7 +9,8 @@ logs
 **/*.back.*
 
 **/*node_modules
-*fire_base*
+
+#*fire_base*
 
 redux1.js
 redux2.js
