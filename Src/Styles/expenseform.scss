@@ -1,0 +1,45 @@
+
+.listitem{
+    border:3px;
+    //@extend .component_container;
+    display:block;
+    margin:0 auto;
+    display:flex;
+    justify-content: center;
+}
+
+.loadscreen{
+    align-items: center;
+    justify-content: center;
+//    margin:50px auto;
+    display:flex;
+    height: 100vh;
+    width: 100vw;
+    
+}
+
+
+.listitem_link{
+    align-content: left;
+    text-decoration: none;
+}
+
+
+.listitem_btn{
+    align-content: right;
+    
+}
+
+.list_header{
+    border:2px solid #f7f7f7;
+    justify-content: space-between;
+    display :flex;
+    background: rgb(228, 218, 218);
+    padding:5px 10px;
+}
+
+
+.items{
+    @extend .list_header;
+    background :white;
+}

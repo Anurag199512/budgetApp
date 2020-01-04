@@ -1,0 +1,34 @@
+@import './base';
+@import './settings';
+@import './button';
+
+.boxlayout{
+    background:url('/image/ba1.png') ;
+    height: 100vh;
+    width: 100vw;   
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family:Snell Roundhand, cursive;
+}
+
+
+.boxlayout_box{
+     border-radius: 2.5px;
+     text-align: center;
+     opacity:.5;
+     padding: $m-size $m-size;
+     padding-bottom: 30px;
+     background:fade-out(rgba(179, 179, 179, .3),0.2); 
+     width :20rem;
+}
+
+.boxlayout_title{
+    color:rgb(211, 32, 32);
+    margin-right: 0px;
+    margin-left: 0px;
+    line-height: 1;
+}

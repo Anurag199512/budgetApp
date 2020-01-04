@@ -7,7 +7,7 @@ console.log('budget app')
 const rout=(
     <BrowserRouter>
     <div>
-        <div style={{background:"rgb(10,40,10,.3)",marginBottom:"10px"}}> 
+        <div style={{background:"rgb(10,40,10,.3)"}}> 
         <Link to ="/">Dashboard</Link>
         <Link to ="/add">Add Expense</Link>
         <Link to ="/edit/:id">Edit expense</Link>

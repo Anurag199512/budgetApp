@@ -1,4 +1,4 @@
-import {authprovider,firebase} from '../../firebase/firebase'
+import {authprovider,firebase} from '../../fire_base/firebase'
 
 export function startlogin(){
     return ()=>{

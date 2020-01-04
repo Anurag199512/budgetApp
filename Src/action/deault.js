@@ -1,6 +1,6 @@
 import React from 'react'
 //const uuidv1 = require('uuid/v1');
-import {database} from '../../firebase/firebase'
+import {database} from '../../fire_base/firebase'
 
 export function defal(){
     return (<div style={{color:"red"}}>URL do not exist.Go to proper URL
@@ -18,7 +18,8 @@ function addexpense(ob){
 }
 
 
-export function startaddexpense({description="",cost=0,createddate=0,note=''}={}){
+export function startaddexpense({description="",cost=0,createddate=0,note=""}={}){
+    //console.log('Bb')
     return (dispatch,getState)=>{
         const newob={
         description,cost,createddate,note

@@ -5,8 +5,9 @@ import {firebasedisplayexp} from './deault'
 import store from '../store/createstore'
 import {login, logout} from './authentication'
 import {Maincomponent,history} from './maincomponent'
-import {firebase} from  '../../firebase/firebase' 
-
+import {firebase} from  '../../fire_base/firebase' 
+import '../Styles/style.scss'
+import Loadpage from './loadpage'
 
 //const s =store()
 //store.dispatch(addexpense({description:"For Rent",cost:5000}))
@@ -42,7 +43,7 @@ const jsx=(
 //ReactDOM.render(jsx,document.getElementById("app"))
 
 
-ReactDOM.render(<p>Loading expenses...</p>,document.getElementById("app"))
+ReactDOM.render(<Loadpage/>,document.getElementById("app"))
 
 ////load state from firebase before redering
 

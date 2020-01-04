@@ -1,0 +1,28 @@
+@import './settings';
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: $m-size;
+  margin:0px;
+}
+
+button {
+  cursor: pointer;
+}
+
+button :hover{
+  cursor: pointer;
+  background-color: yellow;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+.is-active {
+  font-weight: bold;
+}

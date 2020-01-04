@@ -1,0 +1,43 @@
+@import './settings';
+
+.container_header{
+    max-width: 80rem;
+    margin:0 auto;
+    justify-content: space-between;
+ }
+
+//@import './component_container.scss'
+
+*{
+    box-sizing: border-box;
+}
+.container{
+    max-width: 80rem;
+    margin:0 auto;
+    padding: 2rem 2rem;
+    display: flex;
+     
+    flex-direction: column;
+    @media (min-width:300px){
+        flex-direction: row;
+    }
+    line-height: 1.5rem;
+    .container_search{
+        margin-right: 10px;
+        height: 36px;
+        font-size: 1.8rem;
+    }
+ }
+
+
+
+.container_sort{
+    margin: 2px 10x;
+    height: 36px;
+    font-size: 1.8rem;
+
+}
+
+
+
+

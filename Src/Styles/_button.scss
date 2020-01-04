@@ -1,0 +1,13 @@
+@import './settings';
+
+.button{
+    background-color: rgba(190, 183, 113, 0.1);
+    width: 100%;
+    padding: $s-size 10px;
+    margin:0px;
+    border-color: white;
+    font-size: $m-size;
+    font-weight: bold;
+    color:rgb(235, 138, 28);
+    border :8px;
+}

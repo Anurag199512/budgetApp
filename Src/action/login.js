@@ -3,16 +3,19 @@ import {connect} from 'react-redux'
 import {startlogin} from './authentication' 
 
 export function Login({startlogin}){
-    return(<div>
-        <p>This is login page....</p>
-        <button onClick={startlogin}>Login</button> 
+    return(<div className="boxlayout">
+        <div className="boxlayout_box">
+            <h1 className="boxlayout_title">BudgetApp</h1>
+            <p style={{color:"white"}}>Keep track of your expenses !!</p>
+            <button className="button"onClick={startlogin}>Login using Google</button> 
+        </div>
     </div>)
 }
 
 
 const mapdispatchtoprops=(dispatch)=> 
 {
-    //console.log(dispatch)
+    //console.log(dispatch)N
     return {
         startlogin:()=>dispatch(startlogin())
     }
