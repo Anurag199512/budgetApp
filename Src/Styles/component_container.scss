@@ -14,15 +14,26 @@
 .container{
     max-width: 80rem;
     margin:0 auto;
-    padding: 2rem 2rem;
+  
     display: flex;
      
     flex-direction: column;
-    @media (min-width:300px){
+    @media(min-width:500px){
         flex-direction: row;
+        padding: 2rem 2rem;
+    }
+
+    @media(max-width:200px){
+        flex-direction: column;
+    
     }
     line-height: 1.5rem;
     .container_search{
+        
+        @media(max-width:220px){
+            width:75%;
+            
+        }
         margin-right: 10px;
         height: 36px;
         font-size: 1.8rem;
@@ -32,6 +43,10 @@
 
 
 .container_sort{
+    @media(max-width:200px){
+        width:75%;
+        
+    }
     margin: 2px 10x;
     height: 36px;
     font-size: 1.8rem;

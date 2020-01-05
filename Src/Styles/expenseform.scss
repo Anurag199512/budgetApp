@@ -47,4 +47,8 @@
 .items{
     @extend .list_header;
     background :white;
+    
+    @media(max-width:200px){
+        flex-direction: column;
+    }
 }
